@@ -1,5 +1,5 @@
 require('dolugen/telescope')
 require('dolugen/lightline')
-require('dolugen/gitsigns')
+--require('dolugen/gitsigns')
 require('dolugen/lsp')
 require('dolugen/treesitter')
