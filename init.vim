@@ -21,6 +21,19 @@ set smartcase
 " hide mode because lightline shows it
 set noshowmode
 
+set splitbelow
+set splitright
+
+" show line break
+set ffs=unix
+set encoding=utf-8
+set fileencoding=utf-8
+set listchars=eol:¶
+set list
+
+" nvim 0.7
+" enable global statusline
+set laststatus=3
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -66,10 +79,22 @@ set background=dark
 let mapleader="\<SPACE>"
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-" C-p was already bound for Zellij
-nnoremap <C-f> :Telescope find_files<Cr>
+" Custom rg command to ignore .git directory
+nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files,--glob,!.git<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fs <cmd>Telescope grep_string<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fm <cmd>Telescope man_pages<cr>
+nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
+" Q: where do the oldfiles list kept?
+" nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
 nnoremap <C-\> <cmd>:NERDTreeToggle<cr>
+nnoremap <leader>gb <cmd>Git blame<cr>
+nnoremap <leader>gs <cmd>Git status<cr>
+" to reload init.vim without restarting:
+nnoremap <leader>sv :source $MYVIMRC<cr>
+" split shortcuts
+nnoremap <leader>sp :split<cr>
+nnoremap <leader>vs :vsplit<cr>
+
